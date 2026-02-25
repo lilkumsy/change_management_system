@@ -1,0 +1,11 @@
+﻿Testing CR Creation on MSSQL...
+
+Calling CRManager::create...
+PDO ERROR: SQLSTATE[42S02]: [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid object name 'change_requests'.
+SQL State: 42S02
+
+Full trace:
+#0 C:\Users\ayuas\Downloads\change-management-php\includes\db_helper.php(51): PDOStatement->execute(Array)
+#1 C:\Users\ayuas\Downloads\change-management-php\includes\cr_manager.php(17): DB->query('INSERT INTO cha...', Array)
+#2 C:\Users\ayuas\Downloads\change-management-php\test_cr_verbose.php(16): CRManager::create('Test CR', 'Testing MSSQL', 'u1', Array)
+#3 {main}

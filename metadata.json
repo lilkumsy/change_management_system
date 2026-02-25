@@ -1,0 +1,7 @@
+{
+  "name": "CHANGE MANAGEMENT",
+  "description": "An end-to-end audit-ready platform for tracking core banking updates from vendor email -> testing -> risk review -> IT approval -> production deployment.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
