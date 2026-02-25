@@ -8,25 +8,25 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-    - name: Extract zip files
-      run: |
-        unzip components.zip
-        unzip node_modules.zip
-        unzip services.zip
+      - name: Extract files
+        run: |
+          unzip -o components.zip
+          unzip -o node_modules.zip
+          unzip -o services.zip
 
-    - name: Remove zip files
-      run: |
-        rm components.zip
-        rm node_modules.zip
-        rm services.zip
+      - name: Remove zip files
+        run: |
+          rm components.zip
+          rm node_modules.zip
+          rm services.zip
 
-    - name: Commit changes
-      run: |
-        git config --local user.name "GitHub Actions"
-        git config --local user.email "actions@github.com"
-        git add .
-        git commit -m "Extract zip files and remove originals" || echo "No changes to commit"
-        git push
+      - name: Commit and push changes
+        run: |
+          git config --local user.email 'action@github.com'
+          git config --local user.name 'GitHub Action'
+          git add .
+          git commit -m 'Extracted zip files and removed archives' || echo 'Nothing to commit'
+          git push
