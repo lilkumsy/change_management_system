@@ -1,0 +1,32 @@
+name: Extract and Commit
+
+on:
+  workflow_dispatch:
+
+jobs:
+  extract:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Extract zip files
+      run: |
+        unzip components.zip
+        unzip node_modules.zip
+        unzip services.zip
+
+    - name: Remove zip files
+      run: |
+        rm components.zip
+        rm node_modules.zip
+        rm services.zip
+
+    - name: Commit changes
+      run: |
+        git config --local user.name "GitHub Actions"
+        git config --local user.email "actions@github.com"
+        git add .
+        git commit -m "Extract zip files and remove originals" || echo "No changes to commit"
+        git push
